@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Consulta de estudiantes aprobados</title> // Título de la página
+    <title>Consulta de estudiantes aprobados</title> <!-- Título de la página-->
     <!-- Agregamos Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
@@ -13,30 +13,30 @@
     </style>
 </head>
 <body>
-    <div class="container"> // Contenedor principal
+    <div class="container"> <!-- Contenedor principal-->
         <div class="row justify-content-center">
-            <div class="col-6"> // Columna con ancho de 6
+            <div class="col-6"> <!-- Columna con ancho de 6-->
                 <div class="card mt-5 card-custom">
                     <div class="card-body">
-                        <h1 class="card-title text-center">Consulta de estudiantes aprobados</h1> // Título de la página
+                        <h1 class="card-title text-center">Consulta de estudiantes aprobados</h1> <!-- Título de la página-->
                         <form method="POST" class="mt-4">
                             {{ form.hidden_tag() }}
                             <div class="form-group">
-                                {{ form.num_documento.label(class="form-control-label") }} // Etiqueta del campo
-                                {{ form.num_documento(class="form-control", placeholder="Ingresa el número de documento") }} // Campo de texto
+                                {{ form.num_documento.label(class="form-control-label") }} <!-- Etiqueta del campo-->
+                                {{ form.num_documento(class="form-control", placeholder="Ingresa el número de documento") }} <!-- Campo de texto-->
                                 {% if form.num_documento.errors %}
-                                    <div class="alert alert-danger mt-2" role="alert"> // Alerta de error
+                                    <div class="alert alert-danger mt-2" role="alert"> <!--Alerta de error-->
                                         {% for error in form.num_documento.errors %}
                                             <p>{{ error }}</p>
                                         {% endfor %}
                                     </div>
                                 {% endif %}
                             </div>
-                            <div class="form-group text-center"> //
-                                {{ form.submit(class="btn btn-primary") }} // Botón de envío
+                            <div class="form-group text-center"> 
+                                {{ form.submit(class="btn btn-primary") }} <!-- Botón de envío-->
                             </div>
                         </form>
-                        {% if estudiante %} // Si existe un estudiante mostrar la información
+                        {% if estudiante %} <!-- Si existe un estudiante mostrar la información-->
                             <div class="alert alert-success mt-4" role="alert">
                                 <p>Nombre completo: {{estudiante.nombre_completo}}</p>
                                 <p>Numero de documento: {{estudiante.num_documento}}</p>
@@ -44,7 +44,7 @@
                                 <p>Nombre del curso: {{estudiante.nombre_curso}}</p>
                             </div>
                             {% elif estudiante is none and form.num_documento.data %}
-                            <div class="alert alert-danger mt-4 role="alert">No se encontró un estudiante con el número de documento proporcionado. //Alerta si no se encuentra un estudiante
+                            <div class="alert alert-danger mt-4 role="alert">No se encontró un estudiante con el número de documento proporcionado. <!--Alerta si no se encuentra un estudiante-->
                             </div>
                         {% endif %}
                     </div>
